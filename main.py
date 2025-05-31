@@ -1,35 +1,18 @@
-# import parallel as par
-
-# def main():
-#    par.main()
-
-# if __name__ == "__main__":
-#    main()
-
-
-
-import parallel as par
+from zd_1 import main as zd_1
+from zd_2 import main as zd_2
+from zd_3 import main as zd_3
+import asyncio
 
 def main():
-    par.main()
+    choose = input('Select what you want to see: \n 1 - multithreading;\n 2 - multiprocessing\n 3 - asynchronous\n. Your choise: ')
+    if choose == '1':
+        zd_1()
+    elif choose == '2':
+        zd_2()
+    elif choose =='3':
+        asyncio.run(zd_3())
+    else:
+        print('Please, try again')
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
-"""
-if __name__ == "__main__":
-    tasks = Parallel(
-        num_tasks = 100,       # количество заданий в Task1
-        max_threads = 5,       # максимальное число одновременных потоков
-        num_files = 6,         # число «больших» файлов в Task2
-        max_processes = 4      # лимит процессов в Task2
-    )
-
-    print("=== Задание 1: Ограничение потоков (Semaphore) ===")
-    tasks.task1()
-
-    print("\n=== Задание 2: Параллельная vs последовательная обработка файлов ===")
-    tasks.task2()
-
-    print("\n=== Задание 3: Синхронизация с Lock в asyncio ===")
-    asyncio.run(tasks.task3())
-"""
